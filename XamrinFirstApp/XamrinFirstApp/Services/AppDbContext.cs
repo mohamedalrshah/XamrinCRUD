@@ -1,0 +1,30 @@
+﻿using System;
+using System.IO;
+using System.Collections.Generic;
+using System.Text;
+using Microsoft.EntityFrameworkCore;
+using Xamarin.Essentials;
+using XamrinFirstApp.Models;
+
+namespace XamrinFirstApp.Services
+{
+    public class AppDbContext : DbContext
+    {
+        public DbSet<Country> Countries { get; set; }
+        public DbSet<Blog> Blogs { get; set; }
+        public DbSet<Post> Posts { get; set; }
+
+        public AppDbContext()
+        {
+            SQLitePCL.Batteries_V2.Init();
+            //this.Database.EnsureDeleted();
+            this.Database.EnsureCreated();
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "MyDB.db3");
+            optionsBuilder.UseSqlite($"Filename={dbPath}");
+        }
+    }
+}

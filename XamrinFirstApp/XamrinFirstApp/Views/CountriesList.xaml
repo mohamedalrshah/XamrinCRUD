@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamrinFirstApp.Views.CountriesList">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Button Text="Add New Country" Clicked="Button_Clicked"></Button>
+
+            <Entry x:Name="Namebox" Placeholder="Enter Country Name"/>
+            <Entry x:Name="ShortNameBox" Placeholder="Enter Short Name"/>
+
+            <CollectionView x:Name="collectionView">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Label Grid.Column="0" Text="{Binding Id}"></Label>
+                            <Label Grid.Column="1" Text="{Binding Name}"></Label>
+                            <Label Grid.Column="2" Text="{Binding ShortName}"></Label>
+                            <Label Grid.Column="3" Text="{Binding CreationDateTime}"></Label>
+                            <Button Grid.Column="4" Text="Delete" Clicked="Delete_Clicked"></Button>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
