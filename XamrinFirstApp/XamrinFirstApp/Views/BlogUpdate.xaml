@@ -8,8 +8,8 @@
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
 
-            <Label x:Name="Idlabel" Text="{Binding currentBlog.Id}"/>
-            <Entry x:Name="UrlBox" Text="{Binding currentBlog.Url}" Placeholder="Enter Url"/>
+            <Label x:Name="Idlabel" Text="{Binding Id}"/>
+            <Entry x:Name="UrlBox" Text="{Binding Url}"/>
             <Button x:Name="SaveButton" Text="Update Blog" Clicked="Button_Clicked"></Button>
         </StackLayout>
     </ContentPage.Content>

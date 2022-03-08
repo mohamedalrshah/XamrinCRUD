@@ -24,8 +24,9 @@ namespace XamrinFirstApp.Views
                 SaveButton.Text = "Insert Blog";
                 Idlabel.IsVisible = false;
             }
-            Idlabel.Text = blog.Id.ToString();
-            UrlBox.Text = blog.Url;
+            BindingContext = currentBlog;
+            //Idlabel.Text = blog.Id.ToString();
+            //UrlBox.Text = blog.Url;
         }
 
         private async void Button_Clicked(object sender, EventArgs e)

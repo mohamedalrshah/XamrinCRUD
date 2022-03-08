@@ -47,21 +47,21 @@ namespace XamrinFirstApp.Views
         {
             Blog blog = (Blog)blogsList.SelectedItem;
             //Blog b = (Blog)e.CurrentSelection.First();
-            string result = await DisplayActionSheet("إختار الوظيفة", "تراجع", null, new string[] { "Update", "Delete" });
+            string result = await DisplayActionSheet("إختار الوظيفة", "تراجع", null, new string[] { "تعديل", "حذف" });
 
-            if (result == "Update")
+            if (result == "تعديل")
             {
                 using (var appDbContext = new AppDbContext())
                 {
                     await this.Navigation.PushAsync(new BlogUpdate(blog));
                 }
             }
-            else if (result == "Delete")
+            else if (result == "حذف")
             {
                 string deleteResult = await DisplayActionSheet("هل أنت متأكد من الحذف؟", null, null,
-                    new string[] { "Yes", "No" });
+                    new string[] { "نعم", "لا" });
 
-                if (deleteResult == "Yes")
+                if (deleteResult == "نعم")
                 {
                     using (var appDbContext = new AppDbContext())
                     {
