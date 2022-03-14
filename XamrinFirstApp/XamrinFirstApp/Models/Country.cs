@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -6,11 +7,6 @@ namespace XamrinFirstApp.Models
 {
     public class Country
     {
-        public Country()
-        {
-            this.CreationDateTime = DateTime.Now;
-        }
-
         [Key, Required, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
@@ -21,5 +17,7 @@ namespace XamrinFirstApp.Models
         public string ShortName { get; set; }
 
         public DateTime CreationDateTime { get; set; }
+
+        public List<City> Cities { get; set; }
     }
 }

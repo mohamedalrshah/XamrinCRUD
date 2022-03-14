@@ -14,7 +14,7 @@ namespace XamrinFirstApp.Services
         public AppDbContext()
         {
             SQLitePCL.Batteries_V2.Init();
-            this.Database.EnsureDeleted();
+            //this.Database.EnsureDeleted();
             this.Database.EnsureCreated();
             //this.Countries.Add(new Country() { Name = "Libya", ShortName = "LY" });
             //this.Countries.Add(new Country() { Name = "Tunis", ShortName = "TN" });
