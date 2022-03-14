@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XamrinFirstApp.Views.CountriesList">
+             x:Class="XamrinFirstApp.Views.CitiesList">
     <ContentPage.Content>
         <StackLayout>
             <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
 
-            <Button Text="Add New Country" Clicked="Button_Clicked"></Button>
-            <ListView x:Name="countriesList" SelectionMode="Single" ItemTapped="countriesList_ItemTapped">
+            <Button Text="Add New City" Clicked="Button_Clicked"></Button>
+            <ListView x:Name="citiesList" SelectionMode="Single" ItemTapped="citiesList_ItemTapped">
                 <ListView.ItemTemplate>
-                    <DataTemplate>
+                    <DataTemplate>                        
                         <ViewCell>
                             <Frame BackgroundColor="Black" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                                 <Grid>
@@ -22,13 +22,12 @@
                                         <ColumnDefinition></ColumnDefinition>
                                         <ColumnDefinition></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
-                                    <Label Text="{Binding Id}" Grid.Row="0" Grid.Column="0"></Label>
-                                    <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="1"></Label>
-                                    <Label Text="{Binding ShortName}" Grid.Row="0" Grid.Column="2"></Label>
-                                    <Label Text="{Binding CreationDateTime}" Grid.Row="0" Grid.Column="3"></Label>
+                                    <Label Text="{Binding Id}" Grid.Row="0" Grid.Column="0"/>
+                                    <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="1"/>
+                                    <Label Text="{Binding Country.Name}" Grid.Row="0" Grid.Column="2"/>
                                 </Grid>
                             </Frame>
-                        </ViewCell>
+                        </ViewCell>                        
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>

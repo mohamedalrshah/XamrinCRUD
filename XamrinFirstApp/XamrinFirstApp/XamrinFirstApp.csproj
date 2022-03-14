@@ -18,6 +18,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\CityUpdate.xaml.cs">
+      <DependentUpon>CityUpdate.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CitiesList.xaml.cs">
+      <DependentUpon>CitiesList.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\CountryUpdate.xaml.cs">
+      <DependentUpon>CountryUpdate.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Update="Views\BlogList.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

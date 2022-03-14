@@ -1,16 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="XamrinFirstApp.Views.BlogUpdate">
+             x:Class="XamrinFirstApp.Views.CityUpdate">
     <ContentPage.Content>
         <StackLayout VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand">
             <Label Text="Welcome to Xamarin.Forms!"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
 
-            <Label x:Name="Idlabel" Text="{Binding currentBlog.Id}"/>
-            <Entry x:Name="UrlBox" Text="{Binding currentBlog.Url}"/>
-            <Button x:Name="SaveButton" Text="Update Blog" Clicked="Button_Clicked"></Button>
+            <Label x:Name="Idlabel" Text="{Binding currentCity.Id}"/>
+            <Entry x:Name="NameBox" Text="{Binding currentCity.Name}"/>
+            <Picker x:Name="CountryPicker" Title="Select a country" ItemsSource="{Binding countriesList}"
+                    ItemDisplayBinding="{Binding Name}"/>
+            <Button x:Name="SaveButton" Text="Update City" Clicked="Button_Clicked"></Button>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

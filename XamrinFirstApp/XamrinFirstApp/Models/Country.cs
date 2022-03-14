@@ -20,6 +20,6 @@ namespace XamrinFirstApp.Models
         [Required, StringLength(4)]
         public string ShortName { get; set; }
 
-        public DateTime CreationDateTime { get; }
+        public DateTime CreationDateTime { get; set; }
     }
 }

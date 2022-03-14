@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.ComponentModel;
 using System.Linq;
 using Xamarin.Forms;
@@ -9,10 +10,10 @@ using XamrinFirstApp.Services;
 namespace XamrinFirstApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class BlogList : ContentPage
+    public partial class CitiesList : ContentPage
     {
-        public BindingList<Blog> blogs;
-        public BlogList()
+        public BindingList<City> cities;
+        public CitiesList()
         {
             InitializeComponent();
         }
@@ -22,29 +23,28 @@ namespace XamrinFirstApp.Views
             base.OnAppearing();
             using (var appDbContext = new AppDbContext())
             {
-                blogs = new BindingList<Blog>(appDbContext.Blogs.ToList());
-                blogsList.ItemsSource = blogs;
+                cities = new BindingList<City>(appDbContext.Cities.Include(c => c.Country).ToList());
+                citiesList.ItemsSource = cities;
             }
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            Blog blog = new Blog();
-            await this.Navigation.PushAsync(new BlogUpdate(blog));
+            City city = new City();
+            await this.Navigation.PushAsync(new CityUpdate(city));
         }
 
 
-        private async void blogsList_ItemTapped(object sender, ItemTappedEventArgs e)
+        private async void citiesList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            Blog blog = (Blog)blogsList.SelectedItem;
-            //Blog b = (Blog)e.CurrentSelection.First();
+            City city = (City)citiesList.SelectedItem;
             string result = await DisplayActionSheet("إختار الوظيفة", "تراجع", null, new string[] { "تعديل", "حذف" });
 
             if (result == "تعديل")
             {
                 using (var appDbContext = new AppDbContext())
                 {
-                    await this.Navigation.PushAsync(new BlogUpdate(blog));
+                    await this.Navigation.PushAsync(new CityUpdate(city));
                 }
             }
             else if (result == "حذف")
@@ -56,7 +56,7 @@ namespace XamrinFirstApp.Views
                 {
                     using (var appDbContext = new AppDbContext())
                     {
-                        appDbContext.Blogs.Remove(blog);
+                        appDbContext.Cities.Remove(city);
                         appDbContext.SaveChanges();
                     }
                     OnAppearing();

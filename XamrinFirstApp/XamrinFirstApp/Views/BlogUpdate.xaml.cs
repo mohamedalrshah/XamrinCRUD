@@ -9,7 +9,7 @@ namespace XamrinFirstApp.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class BlogUpdate : ContentPage
     {
-        public Blog currentBlog;
+        public Blog currentBlog { get; set; }
         public BlogUpdate()
         {
             InitializeComponent();
@@ -24,7 +24,7 @@ namespace XamrinFirstApp.Views
                 SaveButton.Text = "Insert Blog";
                 Idlabel.IsVisible = false;
             }
-            BindingContext = currentBlog;
+            BindingContext = this;
             //Idlabel.Text = blog.Id.ToString();
             //UrlBox.Text = blog.Url;
         }
