@@ -33,19 +33,6 @@ namespace XamrinFirstApp.Views
             await this.Navigation.PushAsync(new CountryUpdate(country));
         }
 
-        //private void Delete_Clicked(object sender, EventArgs e)
-        //{
-        //    using (var appDbContext = new AppDbContext())
-        //    {
-        //        var view = sender as SwipeItem;
-        //        var item = view.BindingContext as Country;
-
-        //        appDbContext.Countries.Remove(item);
-        //        appDbContext.SaveChanges();
-        //        OnAppearing();
-        //    }
-        //}
-
         private async void countriesList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             Country country = (Country)countriesList.SelectedItem;

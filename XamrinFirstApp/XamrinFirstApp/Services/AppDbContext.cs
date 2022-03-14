@@ -16,12 +16,6 @@ namespace XamrinFirstApp.Services
             SQLitePCL.Batteries_V2.Init();
             //this.Database.EnsureDeleted();
             this.Database.EnsureCreated();
-            //this.Countries.Add(new Country() { Name = "Libya", ShortName = "LY" });
-            //this.Countries.Add(new Country() { Name = "Tunis", ShortName = "TN" });
-            //this.Cities.Add(new City() { Name = "Zliten", CountryId = 1 });
-            //this.Cities.Add(new City() { Name = "Tripoli", CountryId = 1 });
-            //this.Blogs.Add(new Blog() { Id = 1, Url = "www.google.com" });
-            //this.Blogs.Add(new Blog() { Id = 2, Url = "www.facebook.com" });
             this.SaveChanges();
         }
 

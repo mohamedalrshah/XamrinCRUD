@@ -46,7 +46,9 @@ namespace XamrinFirstApp.Views
                     appDbContext.Add(currentCountry);
                 }
                 else
+                {
                     appDbContext.Countries.Update(currentCountry);
+                }
 
                 appDbContext.SaveChanges();
             }
